@@ -144,7 +144,8 @@ function sendToViber() {
 
   var message = "Name: " + name + "\nOrder: " + order;
   var url = "viber://chat?number=" + phone + "&text=" + encodeURIComponent(message);
-
+  alert(url); return false;
+  
   window.open(url, '_blank');
 }
 </script>
