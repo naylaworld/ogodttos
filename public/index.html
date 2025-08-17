@@ -11,6 +11,11 @@
     <style>
         body {
             background-color: #f8f9fa;
+            background-image: url('images/background.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
         .container {
             max-width: 900px;
@@ -42,7 +47,7 @@
     <img src="images/ogod-logo.svg" alt="O GOD Logo" class="logo mb-3">
 
     <!-- Tagline -->
-    <p class="lead">စင်္ကာပူသွားစရာမလိုပဲ စင်္ကာပူအရသာတွေကို<br>"O GOD"မှာ မှာလို့ရပါပြီ!</p>
+    <p class="lead">စင်္ကာပူသွားစရာမလိုပဲ စင်္ကာပူအရသာတွေကို "O GOD"မှာ မှာလို့ရပါပြီ!</p>
 
     <!-- About Us -->
     <h2 class="section-title">About Us</h2>
@@ -116,6 +121,34 @@
             <img src="images/tiktok-qr.png" alt="Tiktok QR" class="qr-img">
             <p>Tiktok</p>
         </div>
+    </div>
+
+    <div>
+        <form onsubmit="sendToViber(); return false;">
+  <div class="mb-3">
+    <label for="name" class="form-label">Your Name</label>
+    <input type="text" class="form-control" id="name" required>
+  </div>
+  <div class="mb-3">
+    <label for="order" class="form-label">Your Order</label>
+    <textarea class="form-control" id="order" rows="3" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Send Order via Viber</button>
+</form>
+
+<script>
+function sendToViber() {
+  var name = document.getElementById("name").value;
+  var order = document.getElementById("order").value;
+  var phone = "959779068288"; // <-- replace with your Viber phone number
+
+  var message = "Name: " + name + "\nOrder: " + order;
+  var url = "viber://chat?number=" + phone + "&text=" + encodeURIComponent(message);
+
+  window.open(url, '_blank');
+}
+</script>
+
     </div>
 
 </div>
