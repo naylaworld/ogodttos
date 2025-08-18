@@ -123,31 +123,134 @@
         </div>
     </div>
 
-  <!-- Order Now -->
-  <section id="order" class="mb-5">
-    <h2 class="section-title"><i class="bi bi-cart4"></i> Order Now</h2>
-    <p class="mb-3">Click the item below to place your order via Facebook Messenger. Your order will be pre-filled—just tap "Send".</p>
-    <div class="row g-3">
-      <div class="col-md-6 text-center">
-        <img src="sample-herbal-chicken.jpg" class="img-fluid rounded mb-2" alt="Herbal Steam Chicken">
-        <h5>Herbal Steam Chicken</h5>
-        <p>ဆေးဖက်ဝင် ကြက်ပေါင်း</p>
-        <a href="https://m.me/61575994991622?ref=Herbal+Steam+Chicken+1+pc" 
-           target="_blank" class="btn btn-success">
-          Order via Messenger
-        </a>
+<section id="order-now" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4"><i class="bi bi-cart4"></i> Order Now</h2>
+    <form id="orderForm">
+      <!-- Customer Info -->
+      <div class="mb-3">
+        <label for="customerName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="customerName" placeholder="Your Name" required>
       </div>
-      <div class="col-md-6 text-center">
-        <img src="sample-bak-kut-teh.jpg" class="img-fluid rounded mb-2" alt="Bak Kut Teh">
-        <h5>Bak Kut Teh</h5>
-        <p>နံရိုးပေါင်း စွပ်ပြုပ်</p>
-        <a href="https://m.me/61575994991622?ref=Bak+Kut+Teh+1+pc" 
-           target="_blank" class="btn btn-success">
-          Order via Messenger
-        </a>
+      <div class="mb-3">
+        <label for="customerAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="customerAddress" placeholder="Your Address" required>
       </div>
-    </div>
-  </section>
+
+      <!-- Menu Items -->
+      <div class="mb-3">
+        <label class="form-label">Herbal Steam Chicken</label>
+        <div class="input-group">
+          <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('herbal')">-</button>
+          <input type="text" class="form-control text-center" id="qtyHerbal" value="0" readonly>
+          <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('herbal')">+</button>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Bak Kut Teh</label>
+        <div class="input-group">
+          <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('bak')">-</button>
+          <input type="text" class="form-control text-center" id="qtyBak" value="0" readonly>
+          <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('bak')">+</button>
+        </div>
+      </div>
+
+      <!-- Pickup Time -->
+      <div class="mb-3">
+        <label for="pickupTime" class="form-label">Pickup Time</label>
+        <select class="form-select" id="pickupTime" required></select>
+      </div>
+
+      <!-- Special Request -->
+      <div class="mb-3">
+        <label for="specialRequest" class="form-label">Special Request</label>
+        <textarea class="form-control" id="specialRequest" rows="2" placeholder="Any special request?"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="button" class="btn btn-success" onclick="sendOrder()">Send Order via WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+// Quantity controls
+function increaseQty(item) {
+  const input = document.getElementById(item === 'herbal' ? 'qtyHerbal' : 'qtyBak');
+  input.value = parseInt(input.value) + 1;
+}
+function decreaseQty(item) {
+  const input = document.getElementById(item === 'herbal' ? 'qtyHerbal' : 'qtyBak');
+  if(parseInt(input.value) > 0) input.value = parseInt(input.value) - 1;
+}
+
+// Pickup Time logic
+function updatePickupTimes() {
+  const select = document.getElementById('pickupTime');
+  select.innerHTML = '';
+  const now = new Date();
+  const hourMyanmar = now.getUTCHours() + 6.5; // UTC+6:30 for Myanmar
+  const times = [];
+
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+
+  if(hourMyanmar < 12) {
+    times.push({text: `Today Evening (15:30 - 17:30)`, value: formatDateTime(today, 'evening')});
+    times.push({text: `Tomorrow Morning (10:30 - 12:30)`, value: formatDateTime(tomorrow, 'morning')});
+    times.push({text: `Tomorrow Evening (15:30 - 17:30)`, value: formatDateTime(tomorrow, 'evening')});
+  } else {
+    times.push({text: `Tomorrow Morning (10:30 - 12:30)`, value: formatDateTime(tomorrow, 'morning')});
+    times.push({text: `Tomorrow Evening (15:30 - 17:30)`, value: formatDateTime(tomorrow, 'evening')});
+  }
+
+  times.forEach(t => {
+    const option = document.createElement('option');
+    option.value = t.value;
+    option.text = t.text;
+    select.appendChild(option);
+  });
+}
+
+function formatDateTime(date, session) {
+  const d = `${date.getDate()}/${date.getMonth()+1}`;
+  if(session === 'morning') return `${d} 10:30 - 12:30`;
+  return `${d} 15:30 - 17:30`;
+}
+
+// Send WhatsApp
+function sendOrder() {
+  const name = document.getElementById('customerName').value.trim();
+  const address = document.getElementById('customerAddress').value.trim();
+  const qtyHerbal = document.getElementById('qtyHerbal').value;
+  const qtyBak = document.getElementById('qtyBak').value;
+  const pickupTime = document.getElementById('pickupTime').value;
+  const special = document.getElementById('specialRequest').value.trim();
+
+  if(!name || !address || (qtyHerbal==0 && qtyBak==0) || !pickupTime){
+    alert("Please fill in all required fields and select at least one item.");
+    return;
+  }
+
+  let message = `O GOD Order\nName: ${name}\nAddress: ${address}\n`;
+  if(qtyHerbal>0) message += `Herbal Steam Chicken x${qtyHerbal}\n`;
+  if(qtyBak>0) message += `Bak Kut Teh x${qtyBak}\n`;
+  message += `Pickup Time: ${pickupTime}\n`;
+  if(special) message += `Special Request: ${special}\n`;
+
+  const phone = "959779068288"; // your WhatsApp number
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+// Initialize pickup times on page load
+updatePickupTimes();
+</script>
+
 
     </div>
 
