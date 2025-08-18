@@ -123,37 +123,31 @@
         </div>
     </div>
 
-    <div>
-        <form onsubmit="sendToViber(); return false;">
-  <div class="mb-3">
-    <label for="name" class="form-label">Your Name</label>
-    <input type="text" class="form-control" id="name" required>
-  </div>
-  <div class="mb-3">
-    <label for="order" class="form-label">Your Order</label>
-    <textarea class="form-control" id="order" rows="3" required></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Send Order via Viber</button>
-</form>
-
-<a href="https://m.me/61575994991622" target="_blank" class="btn btn-primary">
-  Order via Messenger
-</a>
-
-
-<script>
-function sendToViber() {
-  var name = document.getElementById("name").value;
-  var order = document.getElementById("order").value;
-  var phone = "959779068288"; // <-- replace with your Viber phone number
-
-  var message = "Name: " + name + "\nOrder: " + order;
-  var url = "viber://chat?number=" + phone + "&text=" + encodeURIComponent(message);
-  alert(url); return false;
-  
-  window.open(url, '_blank');
-}
-</script>
+  <!-- Order Now -->
+  <section id="order" class="mb-5">
+    <h2 class="section-title"><i class="bi bi-cart4"></i> Order Now</h2>
+    <p class="mb-3">Click the item below to place your order via Facebook Messenger. Your order will be pre-filled—just tap "Send".</p>
+    <div class="row g-3">
+      <div class="col-md-6 text-center">
+        <img src="sample-herbal-chicken.jpg" class="img-fluid rounded mb-2" alt="Herbal Steam Chicken">
+        <h5>Herbal Steam Chicken</h5>
+        <p>ဆေးဖက်ဝင် ကြက်ပေါင်း</p>
+        <a href="https://m.me/61575994991622?ref=Herbal+Steam+Chicken+1+pc" 
+           target="_blank" class="btn btn-success">
+          Order via Messenger
+        </a>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="sample-bak-kut-teh.jpg" class="img-fluid rounded mb-2" alt="Bak Kut Teh">
+        <h5>Bak Kut Teh</h5>
+        <p>နံရိုးပေါင်း စွပ်ပြုပ်</p>
+        <a href="https://m.me/61575994991622?ref=Bak+Kut+Teh+1+pc" 
+           target="_blank" class="btn btn-success">
+          Order via Messenger
+        </a>
+      </div>
+    </div>
+  </section>
 
     </div>
 
