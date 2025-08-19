@@ -267,9 +267,9 @@
                                     <!-- Label styled like input -->
                                     <span class="input-group-text flex-grow-1">ဆေးဖက်ဝင် ကြက်ပေါင်း</span>
                                     <!-- Counter (compact width on right) -->
-                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('hsc')">-</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('whatsapp', 'hsc')">-</button>
                                     <input type="text" class="form-control text-center" id="waHsc" value="0" style="max-width: 50px;">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('hsc')">+</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('whatsapp', 'hsc')">+</button>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -277,9 +277,9 @@
                                     <!-- Label styled like input -->
                                     <span class="input-group-text flex-grow-1">ကြက်ပဲငံပြာရည်</span>
                                     <!-- Counter (compact width on right) -->
-                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('ssc')">-</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('whatsapp', 'ssc')">-</button>
                                     <input type="text" class="form-control text-center" id="waSsc" value="0" style="max-width: 50px;">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('ssc')">+</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('whatsapp', 'ssc')">+</button>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -287,21 +287,21 @@
                                     <!-- Label styled like input -->
                                     <span class="input-group-text flex-grow-1">နံရိုးပေါင်း စွပ်ပြုပ်</span>
                                     <!-- Counter (compact width on right) -->
-                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('bkt')">-</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('whatsapp', 'bkt')">-</button>
                                     <input type="text" class="form-control text-center" id="waBkt" value="0" style="max-width: 50px;">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('bkt')">+</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('whatsapp', 'bkt')">+</button>
                                 </div>
                             </div>
 
                             <!-- Pickup Time -->
                             <div class="mb-3">
-                              <label for="pickupTime" class="form-label">Pickup / Deli Time</label>
+                              <label for="pickupTime" class="form-label">Deli အချိန်</label>
                               <select class="form-select" id="waPickupTime" required></select>
                             </div>
 
                             <!-- Special Request -->
                             <div class="mb-3">
-                                <label class="form-label">Special Request</label>
+                                <label class="form-label">အထူးမှတ်ချက်</label>
                                 <textarea class="form-control" id="waRequest" rows="2"></textarea>
                             </div>
 
@@ -342,9 +342,9 @@
                                     <!-- Label styled like input -->
                                     <span class="input-group-text flex-grow-1">ဆေးဖက်ဝင် ကြက်ပေါင်း</span>
                                     <!-- Counter (compact width on right) -->
-                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('hsc')">-</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('telegram', 'hsc')">-</button>
                                     <input type="text" class="form-control text-center" id="tgHsc" value="0" style="max-width: 50px;">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('hsc')">+</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('telegram', 'hsc')">+</button>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -352,9 +352,9 @@
                                     <!-- Label styled like input -->
                                     <span class="input-group-text flex-grow-1">ကြက်ပဲငံပြာရည်</span>
                                     <!-- Counter (compact width on right) -->
-                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('ssc')">-</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('telegram', 'ssc')">-</button>
                                     <input type="text" class="form-control text-center" id="tgSsc" value="0" style="max-width: 50px;">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('ssc')">+</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('telegram', 'ssc')">+</button>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -362,21 +362,21 @@
                                     <!-- Label styled like input -->
                                     <span class="input-group-text flex-grow-1">နံရိုးပေါင်း စွပ်ပြုပ်</span>
                                     <!-- Counter (compact width on right) -->
-                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('bkt')">-</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('telegram', 'bkt')">-</button>
                                     <input type="text" class="form-control text-center" id="tgBkt" value="0" style="max-width: 50px;">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('bkt')">+</button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('telegram', 'bkt')">+</button>
                                 </div>
                             </div>
 
                             <!-- Pickup Time -->
                             <div class="mb-3">
-                              <label for="pickupTime" class="form-label">Pickup / Deli Time</label>
+                              <label for="pickupTime" class="form-label">Deli အချိန်</label>
                               <select class="form-select" id="tgPickupTime" required></select>
                             </div>
 
                             <!-- Special Request -->
                             <div class="mb-3">
-                                <label class="form-label">Special Request</label>
+                                <label class="form-label">အထူးမှတ်ချက်</label>
                                 <textarea class="form-control" id="tgRequest" rows="2"></textarea>
                             </div>
 
@@ -407,13 +407,23 @@
         </div>
         <script>
             // Quantity controls
-            function increaseQty(item) {
-                const input = document.getElementById(item === 'hsc' ? 'waHsc' : (item === 'ssc' ? 'waSsc' : 'waBkt'));
+            function increaseQty(platform, item) {
+                const input = document.getElementById(
+                    platform === 'whatsapp'
+                    ? (item === 'hsc' ? 'waHsc' : (item === 'ssc' ? 'waSsc' : 'waBkt'))
+                    : (item === 'hsc' ? 'tgHsc' : (item === 'ssc' ? 'tgSsc' : 'tgBkt'))
+                );
+                console.log(input);
                 input.value = parseInt(input.value) + 1;
             }
 
-            function decreaseQty(item) {
-                const input = document.getElementById(item === 'hsc' ? 'waHsc' : (item === 'ssc' ? 'waSsc' : 'waBkt'));
+            function decreaseQty(platform, item) {
+                const input = document.getElementById(
+                    platform === 'whatsapp'
+                    ? (item === 'hsc' ? 'waHsc' : (item === 'ssc' ? 'waSsc' : 'waBkt'))
+                    : (item === 'hsc' ? 'tgHsc' : (item === 'ssc' ? 'tgSsc' : 'tgBkt'))
+                );
+                console.log(input);
                 if (parseInt(input.value) > 0) input.value = parseInt(input.value) - 1;
             }
 
@@ -444,18 +454,18 @@
                 }
 
                 let summary = `
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Address:</strong> ${address}</p>
-                <p><strong>Township:</strong> ${ygnTwsp}</p>
-                <p><strong>Phone:</strong> ${phone}</p>
-                <p><strong>Orders:</strong></p>
+                <p><strong>အမည်:</strong> ${name}</p>
+                <p><strong>လိပ်စာ:</strong> ${address}</p>
+                <p><strong>မြို့နယ်:</strong> ${ygnTwsp}</p>
+                <p><strong>ဖုန်းနံပါတ်:</strong> ${phone}</p>
+                <p><strong>Order ယူရန်:</strong></p>
                 <ul>
                 ${hsc > 0 ? `<li>Herbal Steam Chicken x ${hsc}</li>` : ""}
                 ${ssc > 0 ? `<li>Soy Sauce Chicken x ${ssc}</li>` : ""}
                 ${bkt > 0 ? `<li>Bak Kut Teh x ${bkt}</li>` : ""}
                 </ul>
-                <p><strong>Pickup / Deli Time:</strong> ${pickup}</p>
-                <p><strong>Special Request:</strong> ${request}</p>
+                <p><strong>Deli အချိန်:</strong> ${pickup}</p>
+                <p><strong>အထူးမှတ်ချက်:</strong> ${request}</p>
                 `;
 
                 document.getElementById("orderSummary").innerHTML = summary;
@@ -518,8 +528,8 @@
               return d;
             }
 
-            function updatePickupTimes() {
-              const select = document.getElementById("waPickupTime");
+            function updatePickupTimes(platform) {
+              const select = document.getElementById(platform === 'whatsapp' ? 'waPickupTime' : 'tgPickupTime');
               select.innerHTML = "";
 
               const now = new Date();
@@ -562,13 +572,17 @@
             }
 
             // Run on page load
-            updatePickupTimes();
+            updatePickupTimes('whatsapp');
+            updatePickupTimes('telegram');
         </script>
 
         <script>
             // Remember some key fields between visits
             document.addEventListener("DOMContentLoaded", () => {
-                const saveFields = ['waName', 'waAddress', 'waYgnTwsp', 'waPhone'];
+                const saveFields = [
+                    'waName', 'waAddress', 'waYgnTwsp', 'waPhone',
+                    'tgName', 'tgAddress', 'tgYgnTwsp', 'tgPhone'
+                ];
 
                 // Restore previous values
                 saveFields.forEach(id => {
