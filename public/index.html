@@ -10,36 +10,118 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #fefefe;
-            scroll-behavior: smooth; /* smooth scrolling */
-            background-image: url('images/background.png');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+    body {
+        background-color: #fefefe;
+        scroll-behavior: smooth;
+        /* smooth scrolling */
+        background-image: url('images/background.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
     .section-title {
-      font-weight: bold;
-      margin-bottom: 1rem;
-      text-align: center;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: center;
     }
+
     section {
-      padding: 2rem 0;
+        padding: 2rem 0;
     }
+
     .promo-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
     }
+
     .content-wrapper {
-      max-width: 900px;
-      margin: 15px;
+        max-width: 900px;
+        margin: 15px;
     }
+
     .navbar-brand img {
-      max-height: 50px;
+        max-height: 50px;
     }
-  </style>
+    </style>
+
+    <!-- Bubble Styles -->
+    <style>
+        /* Avatar */
+        .chat-wrap .avatar {
+            width: 48px;
+            height: 48px;
+            background: #f1f3f5;
+            color: #111827;
+            font-size: 1.25rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Bubble */
+        .chat-bubble {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 16px 18px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            color: #111827;
+            flex: 1;
+        }
+
+        /* Bubble tail (left) */
+        .chat-bubble::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 18px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #ffffff;
+            /* same as bubble bg */
+        }
+
+        .chat-bubble::after {
+            content: "";
+            position: absolute;
+            left: -11px;
+            top: 17px;
+            width: 0;
+            height: 0;
+            border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent;
+            border-right: 11px solid #e5e7eb;
+            /* matches border color */
+        }
+
+        /* Dark-mode friendly (optional) */
+        @media (prefers-color-scheme: dark) {
+            .chat-wrap .avatar {
+                background: #1f2937;
+                color: #e5e7eb;
+                border-color: #374151;
+            }
+
+            .chat-bubble {
+                background: #111827;
+                border-color: #374151;
+                color: #e5e7eb;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+            }
+
+            .chat-bubble::before {
+                border-right-color: #111827;
+            }
+
+            .chat-bubble::after {
+                border-right-color: #374151;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -76,14 +158,53 @@
         <!-- About Us -->
         <section id="about" class="mb-5">
             <h2 class="section-title"><i class="bi bi-info-circle"></i> About Us</h2>
-            <p>
-                စင်္ကာပူစတိုင် အရသာများကို ရှာဖွေနေပါသလား?
-                <br>
-                <br>"O GOD"မှ စင်္ကာပူစတိုင် အရသာတွေကို သင့်စားပွဲပေါ်အထိ ပို့ဆောင်ပေးနေပါပြီ!
-                <br>
-                <br>ဟင်းလျာတစ်ခုစီတိုင်းကို မိသားစုအတွက် ချက်ပြုတ်သလိုပဲ လတ်ဆတ်ပြီးအဟာရပြည့်ဝတဲ့ ပါဝင်ပစ္စည်းတွေနဲ့ ဂရုတစိုက်
-                ပြင်ဆင်ထားပါတယ်။ ကျန်းမာပြီး အရသာပြည့်ဝတဲ့ အစားအစာလေးကို ရှာဖွေနေတယ်ဆိုရင် "O GOD – The Taste of Singapore" မှတစ်ဆင့် မြည်းစမ်းလိုက်ပါ။
-            </p>
+            <div class="container d-flex justify-content-center" style="margin-bottom: 10px;">
+                <div class="chat-wrap" style="max-width: 720px; width: 100%;">
+                    <div class="d-flex align-items-start gap-3">
+                        <!-- Avatar / Icon -->
+                        <div class="avatar rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-robot" aria-hidden="true"></i>
+                            <span class="visually-hidden">O GOD</span>
+                        </div>
+                        <!-- Bubble -->
+                        <div class="chat-bubble">
+                            <p class="mb-2">ရန်ကုန်မြို့မှာ စင်္ကာပူစတိုင် အရသာများကို ရှာဖွေနေပါသလား?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center" style="margin-bottom: 10px;">
+                <div class="chat-wrap" style="max-width: 720px; width: 100%;">
+                    <div class="d-flex align-items-start gap-3">
+                        <!-- Avatar / Icon -->
+                        <div class="avatar rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-robot" aria-hidden="true"></i>
+                            <span class="visually-hidden">O GOD</span>
+                        </div>
+                        <!-- Bubble -->
+                        <div class="chat-bubble">
+                            <p class="mb-2"><span class="lead text-success">“O GOD”</span> မှ စင်္ကာပူစတိုင် အရသာတွေကို စင်္ကာပူမှ ရန်ကုန်မြို့က သင့်စားပွဲပေါ်အထိ ယူဆောင်ပေးနေပါပြီ!</p>
+                            <p class="mb-2">ဟင်းလျာတစ်ခုစီတိုင်းကို သင့်မိသားစုအတွက် ချက်ပြုတ်ထားသလိုပဲ လတ်ဆတ်ပြီးအဟာရပြည့်ဝတဲ့ ပါဝင်ပစ္စည်းများဖြင့် ဂရုတစိုက်
+                        ပြင်ဆင်ထားပါတယ်။</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center">
+                <div class="chat-wrap" style="max-width: 720px; width: 100%;">
+                    <div class="d-flex align-items-start gap-3">
+                        <!-- Avatar / Icon -->
+                        <div class="avatar rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-robot" aria-hidden="true"></i>
+                            <span class="visually-hidden">O GOD</span>
+                        </div>
+                        <!-- Bubble -->
+                        <div class="chat-bubble">
+                            <p class="mb-2">ကျန်းမာပြီး အရသာပြည့်ဝတဲ့ အစားအစာလေးကို ရှာဖွေနေတယ်ဆိုရင် <span class="lead text-success">“O GOD – The Taste of Singapore”</span> မှတစ်ဆင့် မြည်းစမ်းလိုက်ပါ။</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Available Items -->
@@ -108,17 +229,38 @@
             </div>
         </section>
 
-        <!-- Promotion -->
-        <section id="promo" class="mb-5">
-            <h2 class="section-title"><i class="bi bi-badge-ad"></i> Promotion</h2>
-            <div class="text-center mb-3">
-                <img src="images/promo.png" alt="Promotion Image" class="promo-image">
+        <!-- Promotion Modal -->
+        <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title fw-bold" id="promoModalLabel"><i class="bi bi-badge-ad"></i> Promotion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p class="fs-5 mb-3">Get <strong>10% OFF</strong> on all orders this week!</p>
+                        <p class="small text-muted">Valid until 25 Aug 2025</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Order Now</button>
+                    </div>
+                </div>
             </div>
-            <p>
-                Enjoy 10% off for first-time customers! <br>
-                Terms & Conditions: Promotion valid until end of the month. One use per customer. Cannot be combined with other discounts.
-            </p>
-        </section>
+        </div>
+
+        <script>
+            // Show promo popup on page load
+            document.addEventListener("DOMContentLoaded", function () {
+                // Turn ON/OFF promotion here
+                const promotionActive = true;  // ✅ set to false if no promotion
+
+                if (promotionActive) {
+                    const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+                    promoModal.show();
+                }
+            });
+        </script>
+
 
         <!-- Opening Hours -->
         <section id="hours" class="mb-5">
@@ -215,6 +357,8 @@
                 </div>
             </div>
         </section>
+
+        <!-- Order Now -->
         <section id="order" class="py-5">
             <div class="container">
                 <h2 class="text-center mb-4"><i class="bi bi-cart-check"></i> Order Now</h2>
