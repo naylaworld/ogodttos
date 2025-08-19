@@ -10,7 +10,7 @@
     body {
       background-color: #fefefe;
       scroll-behavior: smooth; /* smooth scrolling */
-      background-image: url('images/background-grayscale.png');
+      background-image: url('images/background.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -109,7 +109,7 @@
   <section id="promo" class="mb-5">
     <h2 class="section-title"><i class="bi bi-badge-ad"></i> Promotion</h2>
     <div class="text-center mb-3">
-      <img src="images/promo.png" alt="Promotion Image" class="promo-image">
+      <img src="sample-promo.jpg" alt="Promotion Image" class="promo-image">
     </div>
     <p>
       Enjoy 10% off for first-time customers! <br>
@@ -153,69 +153,27 @@
     </div>
   </section>
 
-  <section id="order" class="py-5">
+<section id="order-now" class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4"><i class="bi bi-cart-check"></i> Order Now</h2>
-    
-    <!-- Nav Tabs -->
-    <ul class="nav nav-tabs justify-content-center" id="orderTab" role="tablist">
+    <h2 class="text-center mb-4"><i class="bi bi-cart4"></i> Order Now</h2>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs justify-content-center" id="orderTabs" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="whatsapp-tab" data-bs-toggle="tab" data-bs-target="#whatsapp" type="button" role="tab">
-          <i class="bi bi-whatsapp"></i> WhatsApp
+        <button class="nav-link active" id="telegram-tab" data-bs-toggle="tab" data-bs-target="#telegram" type="button" role="tab">
+          <i class="bi bi-telegram"></i> Telegram
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="telegram-tab" data-bs-toggle="tab" data-bs-target="#telegram" type="button" role="tab">
-          <i class="bi bi-telegram"></i> Telegram
+        <button class="nav-link" id="whatsapp-tab" data-bs-toggle="tab" data-bs-target="#whatsapp" type="button" role="tab">
+          <i class="bi bi-whatsapp"></i> WhatsApp
         </button>
       </li>
     </ul>
 
-    <!-- Tab Content -->
-    <div class="tab-content mt-4">
-      <!-- WhatsApp Form -->
-      <div class="tab-pane fade show active" id="whatsapp" role="tabpanel">
-        <form id="whatsappForm">
-          <div class="mb-3">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control" id="waName" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Address</label>
-            <input type="text" class="form-control" id="waAddress" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Herbal Steam Chicken</label>
-            <input type="number" class="form-control" id="waHsc" value="0" min="0">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Soy Sauce Chicken</label>
-            <input type="number" class="form-control" id="waSsc" value="0" min="0">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Bak Kut Teh</label>
-            <input type="number" class="form-control" id="waBkt" value="0" min="0">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Pickup Time</label>
-            <select class="form-select" id="waPickupTime" required>
-              <option value="">-- Select --</option>
-              <option value="Morning (10:30 - 12:30)">Morning (10:30 - 12:30)</option>
-              <option value="Evening (15:30 - 17:30)">Evening (15:30 - 17:30)</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Special Request</label>
-            <textarea class="form-control" id="waRequest" rows="2"></textarea>
-          </div>
-          <button type="button" class="btn btn-success w-100" onclick="previewOrder('whatsapp')">
-            Preview Order & Send via WhatsApp
-          </button>
-        </form>
-      </div>
-
+    <div class="tab-content mt-4" id="orderTabsContent">
       <!-- Telegram Form -->
-      <div class="tab-pane fade" id="telegram" role="tabpanel">
+      <div class="tab-pane fade show active" id="telegram" role="tabpanel">
         <form id="telegramForm">
           <div class="mb-3">
             <label class="form-label">Name</label>
@@ -225,103 +183,209 @@
             <label class="form-label">Address</label>
             <input type="text" class="form-control" id="tgAddress" required>
           </div>
+
+          <!-- Items -->
           <div class="mb-3">
             <label class="form-label">Herbal Steam Chicken</label>
-            <input type="number" class="form-control" id="tgHsc" value="0" min="0">
+            <div class="input-group">
+              <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('tgHerbal')">-</button>
+              <input type="text" class="form-control text-center" id="tgHerbal" value="0" readonly>
+              <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('tgHerbal')">+</button>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Soy Sauce Chicken</label>
-            <input type="number" class="form-control" id="tgSsc" value="0" min="0">
+            <div class="input-group">
+              <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('tgSoy')">-</button>
+              <input type="text" class="form-control text-center" id="tgSoy" value="0" readonly>
+              <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('tgSoy')">+</button>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Bak Kut Teh</label>
-            <input type="number" class="form-control" id="tgBkt" value="0" min="0">
+            <div class="input-group">
+              <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('tgBak')">-</button>
+              <input type="text" class="form-control text-center" id="tgBak" value="0" readonly>
+              <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('tgBak')">+</button>
+            </div>
           </div>
+
+          <!-- Pickup Time -->
           <div class="mb-3">
-            <label class="form-label">Pickup Time</label>
-            <select class="form-select" id="tgPickupTime" required>
-              <option value="">-- Select --</option>
-              <option value="Morning (10:30 - 12:30)">Morning (10:30 - 12:30)</option>
-              <option value="Evening (15:30 - 17:30)">Evening (15:30 - 17:30)</option>
-            </select>
+            <label class="form-label">Pickup / Delivery Time</label>
+            <select class="form-select" id="tgPickup" required></select>
           </div>
+
+          <!-- Special Request -->
           <div class="mb-3">
             <label class="form-label">Special Request</label>
-            <textarea class="form-control" id="tgRequest" rows="2"></textarea>
+            <textarea class="form-control" id="tgSpecial" rows="2"></textarea>
           </div>
-          <button type="button" class="btn btn-primary w-100" onclick="previewOrder('telegram')">
-            Preview Order & Send via Telegram
-          </button>
+
+          <div class="text-center">
+            <button type="button" class="btn btn-primary" onclick="sendTelegram()">Send via Telegram</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- WhatsApp Form -->
+      <div class="tab-pane fade" id="whatsapp" role="tabpanel">
+        <form id="whatsappForm">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" id="waName" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" id="waAddress" required>
+          </div>
+
+          <!-- Items -->
+          <div class="mb-3">
+            <label class="form-label">Herbal Steam Chicken</label>
+            <div class="input-group">
+              <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('waHerbal')">-</button>
+              <input type="text" class="form-control text-center" id="waHerbal" value="0" readonly>
+              <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('waHerbal')">+</button>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Soy Sauce Chicken</label>
+            <div class="input-group">
+              <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('waSoy')">-</button>
+              <input type="text" class="form-control text-center" id="waSoy" value="0" readonly>
+              <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('waSoy')">+</button>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Bak Kut Teh</label>
+            <div class="input-group">
+              <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('waBak')">-</button>
+              <input type="text" class="form-control text-center" id="waBak" value="0" readonly>
+              <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('waBak')">+</button>
+            </div>
+          </div>
+
+          <!-- Pickup Time -->
+          <div class="mb-3">
+            <label class="form-label">Pickup / Delivery Time</label>
+            <select class="form-select" id="waPickup" required></select>
+          </div>
+
+          <!-- Special Request -->
+          <div class="mb-3">
+            <label class="form-label">Special Request</label>
+            <textarea class="form-control" id="waSpecial" rows="2"></textarea>
+          </div>
+
+          <div class="text-center">
+            <button type="button" class="btn btn-success" onclick="sendWhatsApp()">Send via WhatsApp</button>
+          </div>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Summary Modal -->
-<div class="modal fade" id="orderPreviewModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Order Summary</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body" id="orderSummary"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success" id="confirmOrderBtn">Confirm & Send</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-  function previewOrder(platform) {
-    let name = document.getElementById(platform === 'whatsapp' ? 'waName' : 'tgName').value;
-    let address = document.getElementById(platform === 'whatsapp' ? 'waAddress' : 'tgAddress').value;
-    let hsc = document.getElementById(platform === 'whatsapp' ? 'waHsc' : 'tgHsc').value;
-    let ssc = document.getElementById(platform === 'whatsapp' ? 'waSsc' : 'tgSsc').value;
-    let bkt = document.getElementById(platform === 'whatsapp' ? 'waBkt' : 'tgBkt').value;
-    let pickup = document.getElementById(platform === 'whatsapp' ? 'waPickupTime' : 'tgPickupTime').value;
-    let request = document.getElementById(platform === 'whatsapp' ? 'waRequest' : 'tgRequest').value;
+// Quantity controls
+function increaseQty(id) {
+  const input = document.getElementById(id);
+  input.value = parseInt(input.value) + 1;
+}
+function decreaseQty(id) {
+  const input = document.getElementById(id);
+  if(parseInt(input.value) > 0) input.value = parseInt(input.value) - 1;
+}
 
-    let summary = `
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Address:</strong> ${address}</p>
-      <p><strong>Orders:</strong></p>
-      <ul>
-        ${hsc > 0 ? `<li>Herbal Steam Chicken x ${hsc}</li>` : ""}
-        ${ssc > 0 ? `<li>Soy Sauce Chicken x ${ssc}</li>` : ""}
-        ${bkt > 0 ? `<li>Bak Kut Teh x ${bkt}</li>` : ""}
-      </ul>
-      <p><strong>Pickup Time:</strong> ${pickup}</p>
-      <p><strong>Special Request:</strong> ${request}</p>
-    `;
+// Pickup Time logic
+function updatePickupTimes(selectId) {
+  const select = document.getElementById(selectId);
+  select.innerHTML = '';
+  const now = new Date();
+  const hourMyanmar = now.getUTCHours() + 6.5; // UTC+6:30
+  const times = [];
 
-    document.getElementById("orderSummary").innerHTML = summary;
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
 
-    // Open modal
-    var myModal = new bootstrap.Modal(document.getElementById('orderPreviewModal'));
-    myModal.show();
-
-    // Confirm & Send button
-    document.getElementById("confirmOrderBtn").onclick = function() {
-      let message = `Order from ${name}\nAddress: ${address}\n\nItems:\n`;
-      if(hsc > 0) message += `- Herbal Steam Chicken x${hsc}\n`;
-      if(ssc > 0) message += `- Soy Sauce Chicken x${ssc}\n`;
-      if(bkt > 0) message += `- Bak Kut Teh x${bkt}\n`;
-      message += `\nPickup Time: ${pickup}\nSpecial Request: ${request}`;
-
-      let url = "";
-      if(platform === 'whatsapp') {
-        url = "https://wa.me/959779068288?text=" + encodeURIComponent(message);
-      } else {
-        url = "https://t.me/yourusername?text=" + encodeURIComponent(message); // replace with your Telegram link
-      }
-      window.open(url, "_blank");
-    }
+  if(hourMyanmar < 12) {
+    times.push(`Today Evening (15:30 - 17:30)`);
+    times.push(`Tomorrow Morning (10:30 - 12:30)`);
+    times.push(`Tomorrow Evening (15:30 - 17:30)`);
+  } else {
+    times.push(`Tomorrow Morning (10:30 - 12:30)`);
+    times.push(`Tomorrow Evening (15:30 - 17:30)`);
   }
+
+  times.forEach(t => {
+    const option = document.createElement('option');
+    option.value = t;
+    option.text = t;
+    select.appendChild(option);
+  });
+}
+
+updatePickupTimes('tgPickup');
+updatePickupTimes('waPickup');
+
+// Send Telegram
+function sendTelegram() {
+  const name = document.getElementById('tgName').value;
+  const address = document.getElementById('tgAddress').value;
+  const qtyHerbal = document.getElementById('tgHerbal').value;
+  const qtySoy = document.getElementById('tgSoy').value;
+  const qtyBak = document.getElementById('tgBak').value;
+  const pickup = document.getElementById('tgPickup').value;
+  const special = document.getElementById('tgSpecial').value;
+
+  if(!name || !address || (qtyHerbal==0 && qtySoy==0 && qtyBak==0)){
+    alert("Please fill in all fields and choose at least one item.");
+    return;
+  }
+
+  let msg = `O GOD Order (Telegram)\nName: ${name}\nAddress: ${address}\n`;
+  if(qtyHerbal>0) msg += `Herbal Steam Chicken x${qtyHerbal}\n`;
+  if(qtySoy>0) msg += `Soy Sauce Chicken x${qtySoy}\n`;
+  if(qtyBak>0) msg += `Bak Kut Teh x${qtyBak}\n`;
+  msg += `Pickup/Delivery Time: ${pickup}\n`;
+  if(special) msg += `Special Request: ${special}\n`;
+
+  // Replace with your Telegram number or username
+  const tgUser = "YourTelegramUsername"; 
+  const url = `https://t.me/${tgUser}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
+// Send WhatsApp
+function sendWhatsApp() {
+  const name = document.getElementById('waName').value;
+  const address = document.getElementById('waAddress').value;
+  const qtyHerbal = document.getElementById('waHerbal').value;
+  const qtySoy = document.getElementById('waSoy').value;
+  const qtyBak = document.getElementById('waBak').value;
+  const pickup = document.getElementById('waPickup').value;
+  const special = document.getElementById('waSpecial').value;
+
+  if(!name || !address || (qtyHerbal==0 && qtySoy==0 && qtyBak==0)){
+    alert("Please fill in all fields and choose at least one item.");
+    return;
+  }
+
+  let msg = `O GOD Order (WhatsApp)\nName: ${name}\nAddress: ${address}\n`;
+  if(qtyHerbal>0) msg += `Herbal Steam Chicken x${qtyHerbal}\n`;
+  if(qtySoy>0) msg += `Soy Sauce Chicken x${qtySoy}\n`;
+  if(qtyBak>0) msg += `Bak Kut Teh x${qtyBak}\n`;
+  msg += `Pickup/Delivery Time: ${pickup}\n`;
+  if(special) msg += `Special Request: ${special}\n`;
+
+  const phone = "959779068288"; // your WhatsApp number
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
 </script>
+
 
 
 </div> <!-- end content-wrapper -->
