@@ -454,18 +454,18 @@
                 }
 
                 let summary = `
-                <p><strong>အမည် :</strong> ${name}</p>
-                <p><strong>လိပ်စာ :</strong> ${address}</p>
-                <p><strong>မြို့နယ် :</strong> ${ygnTwsp}</p>
-                <p><strong>ဖုန်းနံပါတ် :</strong> ${phone}</p>
-                <p><strong>Order ယူရန် :</strong></p>
+                <p><strong>အမည် = </strong> ${name}</p>
+                <p><strong>လိပ်စာ = </strong> ${address}</p>
+                <p><strong>မြို့နယ် = </strong> ${ygnTwsp}</p>
+                <p><strong>ဖုန်းနံပါတ် = </strong> ${phone}</p>
+                <p><strong>Order ယူရန် = </strong></p>
                 <ul>
                 ${hsc > 0 ? `<li>ဆေးဖက်ဝင် ကြက်ပေါင်း x ${hsc}</li>` : ""}
                 ${ssc > 0 ? `<li>ကြက်ပဲငံပြာရည် x ${ssc}</li>` : ""}
                 ${bkt > 0 ? `<li>နံရိုးပေါင်း စွပ်ပြုပ် x ${bkt}</li>` : ""}
                 </ul>
-                <p><strong>Deli အချိန် :</strong> ${pickup}</p>
-                <p><strong>အထူးမှတ်ချက် :</strong> ${request}</p>
+                <p><strong>Deli အချိန် = </strong> ${pickup}</p>
+                <p><strong>အထူးမှတ်ချက် = </strong> ${request}</p>
                 `;
 
                 document.getElementById("orderSummary").innerHTML = summary;
@@ -476,11 +476,11 @@
 
                 // Confirm & Send button
                 document.getElementById("confirmOrderBtn").onclick = function() {
-                    let message = `ORDER FROM ${name}\nလိပ်စာ : ${address}\nမြို့နယ် : ${ygnTwsp}\nဖုန်းနံပါတ် : ${phone}\n\nOrder ယူရန် :\n`;
-                    if (hsc > 0) message += `- ဆေးဖက်ဝင် ကြက်ပေါင်း x${hsc}\n`;
-                    if (ssc > 0) message += `- ကြက်ပဲငံပြာရည် x${ssc}\n`;
-                    if (bkt > 0) message += `- နံရိုးပေါင်း စွပ်ပြုပ် x${bkt}\n`;
-                    message += `\nDeli အချိန် : ${pickup}\nအထူးမှတ်ချက် : ${request}`;
+                    let message = `Order Summary\n============\nအမည် = ${name}\nလိပ်စာ = ${address}\nမြို့နယ် = ${ygnTwsp}\nဖုန်းနံပါတ် = ${phone}\n\nOrder ယူရန်\n`;
+                    if (hsc > 0) message += `- ဆေးဖက်ဝင် ကြက်ပေါင်း x ${hsc}\n`;
+                    if (ssc > 0) message += `- ကြက်ပဲငံပြာရည် x ${ssc}\n`;
+                    if (bkt > 0) message += `- နံရိုးပေါင်း စွပ်ပြုပ် x ${bkt}\n`;
+                    message += `\nDeli အချိန် = ${pickup}\nအထူးမှတ်ချက် = ${request}`;
 
                     let url = "";
                     if (platform === 'whatsapp') {
