@@ -230,7 +230,7 @@
         </section>
 
 <!-- Promotion Modal -->
-<!-- <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+<div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-warning">
@@ -238,8 +238,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-                <p class="fs-5 mb-3">Get <strong>Ks 1000 OFF</strong> on all orders this week!</p>
-                <p class="small text-muted">Valid until 25 Aug 2025</p>
+                <p class="fs-3 mb-3"><strong>1,000 OFF</strong></p>
+                <p class="fs-5 mb-3">ယခုတပတ်မှာယူမှုအားလုံးအတွက် <strong>1,000 ကျပ် လျော့ဈေး</strong> ရယူလိုက်ပါ။</p>
+                <p class="mb-3">
+                    ✅ 1 ပွဲ = 1000 ကျပ် သက်သာသည်။<br>
+                    ✅ 3 ပွဲ = 3000 ကျပ် သက်သာပါသည်။<br>
+                    ✅ မှာယူမှု များလေလေ သက်သာလေပါပဲ။
+                </p>
+                <p class="small text-muted">Valid until 31 Aug 2025</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Order Now</button>
@@ -259,10 +265,10 @@
             promoModal.show();
         }
     });
-</script> -->
+</script>
 
 <!-- Info Modal -->
-<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-warning">
@@ -290,7 +296,7 @@
             infoModal.show();
         }
     });
-</script>
+</script> -->
 
         <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -319,7 +325,7 @@
                     <thead>
                         <tr>
                             <th valign="top">Day</th>
-                            <th valign="top">Morning<br>10:30 - 12:30</th>
+                            <th valign="top">Morning<br>11:00 - 13:00</th>
                             <th valign="top">Evening<br>15:30 - 17:30</th>
                         </tr>
                     </thead>
@@ -409,8 +415,25 @@
 
         <!-- Order Now -->
         <section id="order" class="py-5">
-            <div class="container" style="display: none;">
+            <div class="container">
                 <h2 class="text-center mb-4"><i class="bi bi-cart-check"></i> Order Now</h2>
+
+                <!-- Closed Message -->
+                <div class="container d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <div class="chat-wrap" style="max-width: 720px; width: 100%;">
+                        <div class="d-flex align-items-start gap-3">
+                            <!-- Avatar / Icon -->
+                            <div class="avatar rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-robot" aria-hidden="true"></i>
+                                <span class="visually-hidden">O GOD</span>
+                            </div>
+                            <!-- Bubble -->
+                            <div class="chat-bubble">
+                                <p class="mb-2">ဒီနေ့အတွက် အော်ဒါပိတ်ပါပြီ။ မနက်ဖြန် မနက် 9:30 မှ 6:30 နာရီအတွင်း ပြန်လာပါ။ ကျေးဇူးတင်ပါတယ်။</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Nav Tabs -->
                 <ul class="nav nav-tabs justify-content-center" id="orderTab" role="tablist">
@@ -691,7 +714,7 @@
             // Pickup slot logic
             // =================
             // - Daily ordering hours → 9:30–17:30 (MMT).
-            // - Pickup slots → Morning (10:30–12:30) and Evening (15:30–17:30).
+            // - Pickup slots → Morning (11:00–13:00) and Evening (15:30–17:30).
             // - Closed days → e.g. Mon/Wed.
             // - Selection rules →
             //     - Before 12:00 → today’s evening + tomorrow’s morning + tomorrow’s evening (if open).
@@ -728,6 +751,7 @@
               const now = new Date();
               // Myanmar time (UTC+6:30)
               const myanmarNow = new Date(now.getTime() + (6.5 * 60 * 60 * 1000));
+console.log(myanmarNow);
               const hour = myanmarNow.getHours();
               const minute = myanmarNow.getMinutes();
               const currentTime = hour + minute/60;
@@ -748,10 +772,10 @@
 
               // Add tomorrow/next-day slots
               if (currentTime < 12) {
-                times.push({ text: `${nextDay.toDateString()} Morning (10:30 - 12:30)`, value: formatDateTime(nextDay, "Morning") });
+                times.push({ text: `${nextDay.toDateString()} Morning (11:00 - 13:00)`, value: formatDateTime(nextDay, "Morning") });
                 times.push({ text: `${nextDay.toDateString()} Evening (15:30 - 17:30)`, value: formatDateTime(nextDay, "Evening") });
               } else {
-                times.push({ text: `${nextDay.toDateString()} Morning (10:30 - 12:30)`, value: formatDateTime(nextDay, "Morning") });
+                times.push({ text: `${nextDay.toDateString()} Morning (11:00 - 13:00)`, value: formatDateTime(nextDay, "Morning") });
                 times.push({ text: `${nextDay.toDateString()} Evening (15:30 - 17:30)`, value: formatDateTime(nextDay, "Evening") });
               }
 
