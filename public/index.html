@@ -414,26 +414,9 @@
         </section>
 
         <!-- Order Now -->
-        <section id="order" class="py-5">
+        <section id="orderNow" class="py-5">
             <div class="container">
                 <h2 class="text-center mb-4"><i class="bi bi-cart-check"></i> Order Now</h2>
-
-                <!-- Closed Message -->
-                <div class="container d-flex justify-content-center" style="margin-bottom: 10px;">
-                    <div class="chat-wrap" style="max-width: 720px; width: 100%;">
-                        <div class="d-flex align-items-start gap-3">
-                            <!-- Avatar / Icon -->
-                            <div class="avatar rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-robot" aria-hidden="true"></i>
-                                <span class="visually-hidden">O GOD</span>
-                            </div>
-                            <!-- Bubble -->
-                            <div class="chat-bubble">
-                                <p class="mb-2">ဒီနေ့အတွက် အော်ဒါပိတ်ပါပြီ။ မနက်ဖြန် မနက် 9:30 မှ 6:30 နာရီအတွင်း ပြန်လာပါ။ ကျေးဇူးတင်ပါတယ်။</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Nav Tabs -->
                 <ul class="nav nav-tabs justify-content-center" id="orderTab" role="tablist">
@@ -498,16 +481,16 @@
                                     <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('whatsapp', 'ssc')">+</button>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <div class="input-group">
-                                    <!-- Label styled like input -->
+                                    <!~~ Label styled like input ~~>
                                     <span class="input-group-text flex-grow-1" style="text-align: left;">နံရိုးပေါင်း စွပ်ပြုပ်<br>Ks 16,000</span>
-                                    <!-- Counter (compact width on right) -->
+                                    <!~~ Counter (compact width on right) ~~>
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('whatsapp', 'bkt')">-</button>
                                     <input type="text" class="form-control text-center" id="waBkt" value="0" style="max-width: 50px;">
                                     <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('whatsapp', 'bkt')">+</button>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Pickup Time -->
                             <div class="mb-3">
@@ -573,16 +556,16 @@
                                     <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('telegram', 'ssc')">+</button>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <div class="input-group">
-                                    <!-- Label styled like input -->
+                                    <!~~ Label styled like input ~~>
                                     <span class="input-group-text flex-grow-1" style="text-align: left;">နံရိုးပေါင်း စွပ်ပြုပ်<br>Ks 16,000</span>
-                                    <!-- Counter (compact width on right) -->
+                                    <!~~ Counter (compact width on right) ~~>
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('telegram', 'bkt')">-</button>
                                     <input type="text" class="form-control text-center" id="tgBkt" value="0" style="max-width: 50px;">
                                     <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('telegram', 'bkt')">+</button>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Pickup Time -->
                             <div class="mb-3">
@@ -604,6 +587,59 @@
                 </div>
             </div>
         </section>
+
+        <!-- Close Order! -->
+        <section id="closeOrder" class="py-5" style="display: none;">
+            <div class="container">
+                <h2 class="text-center mb-4"><i class="bi bi-cart-check"></i> Close Order!</h2>
+
+                <!-- Closed Message -->
+                <div class="container d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <div class="chat-wrap" style="max-width: 720px; width: 100%;">
+                        <div class="d-flex align-items-start gap-3">
+                            <!-- Avatar / Icon -->
+                            <div class="avatar rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-robot" aria-hidden="true"></i>
+                                <span class="visually-hidden">O GOD</span>
+                            </div>
+                            <!-- Bubble -->
+                            <div class="chat-bubble">
+                                <p class="mb-2">ဒီနေ့အတွက် အော်ဒါပိတ်ပါပြီ။ မနက်ဖြန် မနက် 9:30 မှ 6:30 နာရီအတွင်း ပြန်လာပါ။ ကျေးဇူးတင်ပါတယ်။</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            // function checkOrderTime() {
+            //     // Always get Myanmar local time
+            //     const myanmarNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Yangon" }));
+
+            //     const hour = myanmarNow.getHours();
+            //     const minute = myanmarNow.getMinutes();
+
+            //     const currentMinutes = hour * 60 + minute;
+
+            //     const startMinutes = 9 * 60 + 30;   // 09:30
+            //     const endMinutes   = 18 * 60 + 30;  // 18:30
+
+            //     if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+            //         // ✅ Within open hours → show order form
+            //         document.getElementById("orderNow").style.display = "block";
+            //         document.getElementById("closeOrder").style.display = "none";
+            //     } else {
+            //         // ❌ Outside open hours → hide order form
+            //         document.getElementById("orderNow").style.display = "none";
+            //         document.getElementById("closeOrder").style.display = "block";
+            //     }
+            // }
+
+            // document.addEventListener("DOMContentLoaded", () => {
+            //     checkOrderTime();                 // Run once on load
+            //     setInterval(checkOrderTime, 60000); // Run every 60 seconds
+            // });
+        </script>
 
         <!-- Summary Modal -->
         <div class="modal fade" id="orderPreviewModal" tabindex="-1" aria-hidden="true">
@@ -707,10 +743,7 @@
                     window.open(url, "_blank");
                 }
             }
-        </script>
 
-        <script>
-            
             // Pickup slot logic
             // =================
             // - Daily ordering hours → 9:30–17:30 (MMT).
@@ -750,12 +783,7 @@
 
               const now = new Date();
               // Myanmar time (UTC+6:30)
-              // const myanmarNow = new Date(now.getTime() + (6.5 * 60 * 60 * 1000));
-              const myanmarNow = new Date(
-                new Date().toLocaleString("en-US", { timeZone: "Asia/Yangon" })
-              );
-
-document.getElementById("waRequest").value = myanmarNow;
+              const myanmarNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Yangon" }));
               const hour = myanmarNow.getHours();
               const minute = myanmarNow.getMinutes();
               const currentTime = hour + minute/60;
