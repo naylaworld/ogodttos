@@ -229,74 +229,42 @@
             </div>
         </section>
 
-<!-- Promotion Modal -->
-<div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <h5 class="modal-title fw-bold" id="promoModalLabel"><i class="bi bi-badge-ad"></i> Promotion</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-                <p class="fs-3 mb-3"><strong>1,000 OFF</strong></p>
-                <p class="fs-5 mb-3">ယခုတပတ်မှာယူမှုအားလုံးအတွက် <strong>1,000 ကျပ် လျော့ဈေး</strong> ရယူလိုက်ပါ။</p>
-                <p class="mb-3">
-                    ✅ 1 ပွဲ = 1000 ကျပ် သက်သာသည်။<br>
-                    ✅ 3 ပွဲ = 3000 ကျပ် သက်သာပါသည်။<br>
-                    ✅ မှာယူမှု များလေလေ သက်သာလေပါပဲ။
-                </p>
-                <p class="small text-muted">Valid until 31 Aug 2025</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Order Now</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Show promo popup on page load
-    document.addEventListener("DOMContentLoaded", function () {
-        // Turn ON/OFF promotion here
-        const promotionActive = true;  // ✅ set to false if no promotion
-
-        if (promotionActive) {
-            const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
-            promoModal.show();
-        }
-    });
-</script>
-
-<!-- Info Modal -->
-<!-- <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <h5 class="modal-title fw-bold" id="infoModalLabel"><i class="bi bi-info-square"></i> Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-                <img src="images/opening-soon.png" class="img-fluid">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+        <!-- Promotion Modal -->
+        <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title fw-bold" id="promoModalLabel"><i class="bi bi-badge-ad"></i> Promotion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p class="fs-3 mb-3"><strong>1,000 OFF</strong></p>
+                        <p class="fs-5 mb-3">ယခုတပတ်မှာယူမှုအားလုံးအတွက် <strong>1,000 ကျပ် လျော့ဈေး</strong> ရယူလိုက်ပါ။</p>
+                        <p class="mb-3">
+                            ✅ 1 ပွဲ = 1000 ကျပ် သက်သာသည်။<br>
+                            ✅ 3 ပွဲ = 3000 ကျပ် သက်သာပါသည်။<br>
+                            ✅ မှာယူမှု များလေလေ သက်သာလေပါပဲ။
+                        </p>
+                        <p class="small text-muted">Valid until 31 Aug 2025</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Order Now</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+        <script>
+            // Show promo popup on page load
+            document.addEventListener("DOMContentLoaded", function () {
+                // Turn ON/OFF promotion here
+                const promotionActive = true;  // ✅ set to false if no promotion
 
-<script>
-    // Show info popup on page load
-    document.addEventListener("DOMContentLoaded", function () {
-        // Turn ON/OFF infotion here
-        const infotionActive = true;  // ✅ set to false if no infotion
-
-        if (infotionActive) {
-            const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
-            infoModal.show();
-        }
-    });
-</script> -->
+                if (promotionActive) {
+                    const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+                    promoModal.show();
+                }
+            });
+        </script>
 
         <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -612,33 +580,33 @@
             </div>
         </section>
         <script>
-            // function checkOrderTime() {
-            //     // Always get Myanmar local time
-            //     const myanmarNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Yangon" }));
+            function checkOrderTime() {
+                // Always get Myanmar local time
+                const myanmarNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Yangon" }));
 
-            //     const hour = myanmarNow.getHours();
-            //     const minute = myanmarNow.getMinutes();
+                const hour = myanmarNow.getHours();
+                const minute = myanmarNow.getMinutes();
 
-            //     const currentMinutes = hour * 60 + minute;
+                const currentMinutes = hour * 60 + minute;
 
-            //     const startMinutes = 9 * 60 + 30;   // 09:30
-            //     const endMinutes   = 18 * 60 + 30;  // 18:30
+                const startMinutes = 9 * 60 + 30;   // 09:30
+                const endMinutes   = 18 * 60 + 30;  // 18:30
 
-            //     if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
-            //         // ✅ Within open hours → show order form
-            //         document.getElementById("orderNow").style.display = "block";
-            //         document.getElementById("closeOrder").style.display = "none";
-            //     } else {
-            //         // ❌ Outside open hours → hide order form
-            //         document.getElementById("orderNow").style.display = "none";
-            //         document.getElementById("closeOrder").style.display = "block";
-            //     }
-            // }
+                if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+                    // ✅ Within open hours → show order form
+                    document.getElementById("orderNow").style.display = "block";
+                    document.getElementById("closeOrder").style.display = "none";
+                } else {
+                    // ❌ Outside open hours → hide order form
+                    document.getElementById("orderNow").style.display = "none";
+                    document.getElementById("closeOrder").style.display = "block";
+                }
+            }
 
-            // document.addEventListener("DOMContentLoaded", () => {
-            //     checkOrderTime();                 // Run once on load
-            //     setInterval(checkOrderTime, 60000); // Run every 60 seconds
-            // });
+            document.addEventListener("DOMContentLoaded", () => {
+                checkOrderTime();                 // Run once on load
+                setInterval(checkOrderTime, 60000); // Run every 60 seconds
+            });
         </script>
 
         <!-- Summary Modal -->
