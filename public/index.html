@@ -751,7 +751,7 @@
               const now = new Date();
               // Myanmar time (UTC+6:30)
               const myanmarNow = new Date(now.getTime() + (6.5 * 60 * 60 * 1000));
-console.log(myanmarNow);
+document.getElementById("waRequest").value = myanmarNow;
               const hour = myanmarNow.getHours();
               const minute = myanmarNow.getMinutes();
               const currentTime = hour + minute/60;
