@@ -229,8 +229,69 @@
             </div>
         </section>
 
-        <!-- Promotion Modal -->
-        <!--
+<!-- Promotion Modal -->
+<!-- <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title fw-bold" id="promoModalLabel"><i class="bi bi-badge-ad"></i> Promotion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="fs-5 mb-3">Get <strong>Ks 1000 OFF</strong> on all orders this week!</p>
+                <p class="small text-muted">Valid until 25 Aug 2025</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Order Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show promo popup on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        // Turn ON/OFF promotion here
+        const promotionActive = true;  // ✅ set to false if no promotion
+
+        if (promotionActive) {
+            const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+            promoModal.show();
+        }
+    });
+</script> -->
+
+<!-- Info Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title fw-bold" id="infoModalLabel"><i class="bi bi-info-square"></i> Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="images/opening-soon.png" class="img-fluid">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show info popup on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        // Turn ON/OFF infotion here
+        const infotionActive = true;  // ✅ set to false if no infotion
+
+        if (infotionActive) {
+            const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+            infoModal.show();
+        }
+    });
+</script>
+
         <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -248,20 +309,6 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            // Show promo popup on page load
-            document.addEventListener("DOMContentLoaded", function () {
-                // Turn ON/OFF promotion here
-                const promotionActive = true;  // ✅ set to false if no promotion
-
-                if (promotionActive) {
-                    const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
-                    promoModal.show();
-                }
-            });
-        </script>
-        -->
 
 
         <!-- Opening Hours -->
@@ -362,7 +409,7 @@
 
         <!-- Order Now -->
         <section id="order" class="py-5">
-            <div class="container">
+            <div class="container" style="display: none;">
                 <h2 class="text-center mb-4"><i class="bi bi-cart-check"></i> Order Now</h2>
 
                 <!-- Nav Tabs -->
@@ -411,7 +458,7 @@
                                 <label for="waPhone" class="form-label">Order ယူရန်</label>
                                 <div class="input-group">
                                     <!-- Label styled like input -->
-                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ဆေးဖက်ဝင် ကြက်ပေါင်း<br>Ks 15,000</span>
+                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ဆေးဖက်ဝင် ကြက်ပေါင်း<br>Ks 14,000</span>
                                     <!-- Counter (compact width on right) -->
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('whatsapp', 'hsc')">-</button>
                                     <input type="text" class="form-control text-center" id="waHsc" value="0" style="max-width: 50px;">
@@ -421,7 +468,7 @@
                             <div class="mb-3">
                                 <div class="input-group">
                                     <!-- Label styled like input -->
-                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ကြက်ပဲငံပြာရည်<br>Ks 15,000</span>
+                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ကြက်ပဲငံပြာရည်<br>Ks 14,000</span>
                                     <!-- Counter (compact width on right) -->
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('whatsapp', 'ssc')">-</button>
                                     <input type="text" class="form-control text-center" id="waSsc" value="0" style="max-width: 50px;">
@@ -431,7 +478,7 @@
                             <div class="mb-3">
                                 <div class="input-group">
                                     <!-- Label styled like input -->
-                                    <span class="input-group-text flex-grow-1" style="text-align: left;">နံရိုးပေါင်း စွပ်ပြုပ်<br>Ks 15,000</span>
+                                    <span class="input-group-text flex-grow-1" style="text-align: left;">နံရိုးပေါင်း စွပ်ပြုပ်<br>Ks 16,000</span>
                                     <!-- Counter (compact width on right) -->
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('whatsapp', 'bkt')">-</button>
                                     <input type="text" class="form-control text-center" id="waBkt" value="0" style="max-width: 50px;">
@@ -486,7 +533,7 @@
                                 <label for="tgPhone" class="form-label">Order ယူရန်</label>
                                 <div class="input-group">
                                     <!-- Label styled like input -->
-                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ဆေးဖက်ဝင် ကြက်ပေါင်း<br>Ks 15,000</span>
+                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ဆေးဖက်ဝင် ကြက်ပေါင်း<br>Ks 14,000</span>
                                     <!-- Counter (compact width on right) -->
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('telegram', 'hsc')">-</button>
                                     <input type="text" class="form-control text-center" id="tgHsc" value="0" style="max-width: 50px;">
@@ -496,7 +543,7 @@
                             <div class="mb-3">
                                 <div class="input-group">
                                     <!-- Label styled like input -->
-                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ကြက်ပဲငံပြာရည်<br>Ks 15,000</span>
+                                    <span class="input-group-text flex-grow-1" style="text-align: left;">ကြက်ပဲငံပြာရည်<br>Ks 14,000</span>
                                     <!-- Counter (compact width on right) -->
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('telegram', 'ssc')">-</button>
                                     <input type="text" class="form-control text-center" id="tgSsc" value="0" style="max-width: 50px;">
@@ -506,7 +553,7 @@
                             <div class="mb-3">
                                 <div class="input-group">
                                     <!-- Label styled like input -->
-                                    <span class="input-group-text flex-grow-1" style="text-align: left;">နံရိုးပေါင်း စွပ်ပြုပ်<br>Ks 15,000</span>
+                                    <span class="input-group-text flex-grow-1" style="text-align: left;">နံရိုးပေါင်း စွပ်ပြုပ်<br>Ks 16,000</span>
                                     <!-- Counter (compact width on right) -->
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('telegram', 'bkt')">-</button>
                                     <input type="text" class="form-control text-center" id="tgBkt" value="0" style="max-width: 50px;">
