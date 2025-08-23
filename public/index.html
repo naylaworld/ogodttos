@@ -694,6 +694,7 @@
 
                 // Confirm & Send button
                 document.getElementById("confirmOrderBtn").onclick = function() {
+                    let myUrl = "https://ogodttos-9c771.web.app";
                     let message = `Order Summary\n============\nအမည် = ${name}\nလိပ်စာ = ${address}\nမြို့နယ် = ${ygnTwsp}\nဖုန်းနံပါတ် = ${phone}\n\nOrder ယူရန်\n`;
                     if (hsc > 0) message += `- ဆေးဖက်ဝင် ကြက်ပေါင်း x ${hsc}\n`;
                     if (ssc > 0) message += `- ကြက်ပဲငံပြာရည် x ${ssc}\n`;
@@ -702,10 +703,10 @@
 
                     let url = "";
                     if (platform === 'whatsapp') {
-                        url = "https://wa.me/959779068288?text=" + encodeURIComponent(message);
+                        url = "https://wa.me/959779068288?text=" + encodeURIComponent(myUrl + "<br><br>" + message);
                     } else {
                         // url = "https://t.me/OGOD_TTOS?text=" + encodeURIComponent(message);
-                        url = "https://t.me/share/url?url=https://ogodttos-9c771.web.app&text=" + encodeURIComponent(message);
+                        url = "https://t.me/share/url?url=" + myUrl + "&text=" + encodeURIComponent(message);
                     }
                     window.open(url, "_blank");
                 }
