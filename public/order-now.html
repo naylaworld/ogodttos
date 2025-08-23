@@ -164,14 +164,13 @@ function previewOrder() {
 
     // Confirm & Send button
     document.getElementById("confirmOrderBtn").onclick = function() {
-        let myUrl = "https://ogodttos-9c771.web.app";
         let message = `Order Summary\n============\nအမည် = ${name}\nလိပ်စာ = ${address}\nမြို့နယ် = ${ygnTwsp}\nဖုန်းနံပါတ် = ${phone}\n\nOrder ယူရန်\n`;
         if (hsc > 0) message += `- ဆေးဖက်ဝင် ကြက်ပေါင်း x ${hsc}\n`;
         if (ssc > 0) message += `- ကြက်ပဲငံပြာရည် x ${ssc}\n`;
         if (bkt > 0) message += `- နံရိုးပေါင်း စွပ်ပြုပ် x ${bkt}\n`;
         message += `\nDeli အချိန် = ${pickup}\nအထူးမှတ်ချက် = ${request}`;
 
-        let url = "viber://forward?text=" + encodeURIComponent(myUrl + "\n\n" + message);
+        let url = "viber://forward?text=" + encodeURIComponent(message);
         window.open(url, "_blank");
     }
 }
