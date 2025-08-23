@@ -40,7 +40,10 @@
                         <label for="vbPhone" class="form-label">Order ယူရန်</label>
                         <div class="input-group">
                             <!-- Label styled like input -->
-                            <span class="input-group-text flex-grow-1" style="text-align: left;">ဆေးဖက်ဝင် ကြက်ပေါင်း<br>Ks 14,000</span>
+                            <div class="input-group-text d-flex flex-column flex-grow-1 align-items-start">
+                                <span>ဆေးဖက်ဝင် ကြက်ပေါင်း</span>
+                                <span class="badge text-bg-secondary mt-1">Ks 14,000</span>
+                            </div>
                             <!-- Counter (compact width on right) -->
                             <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('hsc')">-</button>
                             <input type="text" class="form-control text-center" id="vbHsc" value="0" style="max-width: 50px;">
@@ -50,7 +53,10 @@
                     <div class="mb-3">
                         <div class="input-group">
                             <!-- Label styled like input -->
-                            <span class="input-group-text flex-grow-1" style="text-align: left;">ကြက်ပဲငံပြာရည်<br>Ks 14,000</span>
+                            <div class="input-group-text d-flex flex-column flex-grow-1 align-items-start">
+                                <span>ကြက်ပဲငံပြာရည်</span>
+                                <span class="badge text-bg-secondary mt-1">Ks 14,000</span>
+                            </div>
                             <!-- Counter (compact width on right) -->
                             <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('ssc')">-</button>
                             <input type="text" class="form-control text-center" id="vbSsc" value="0" style="max-width: 50px;">
@@ -59,9 +65,12 @@
                     </div>
                     <div class="mb-3" style="display: none;">
                         <div class="input-group">
-                            <!~~ Label styled like input ~~>
-                            <span class="input-group-text flex-grow-1" style="text-align: left;">နံရိုးပေါင်း စွပ်ပြုပ်<br>Ks 16,000</span>
-                            <!~~ Counter (compact width on right) ~~>
+                            <!-- Label styled like input -->
+                            <div class="input-group-text d-flex flex-column flex-grow-1 align-items-start">
+                                <span>နံရိုးပေါင်း စွပ်ပြုပ်</span>
+                                <span class="badge text-bg-secondary mt-1">Ks 16,000</span>
+                            </div>
+                            <!-- Counter (compact width on right) -->
                             <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('bkt')">-</button>
                             <input type="text" class="form-control text-center" id="vbBkt" value="0" style="max-width: 50px;">
                             <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('bkt')">+</button>
