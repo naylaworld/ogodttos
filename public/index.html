@@ -266,7 +266,7 @@
             });
         </script>
 
-        <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-warning">
@@ -282,7 +282,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <!-- Opening Hours -->
@@ -633,7 +633,6 @@
                     ? (item === 'hsc' ? 'waHsc' : (item === 'ssc' ? 'waSsc' : 'waBkt'))
                     : (item === 'hsc' ? 'tgHsc' : (item === 'ssc' ? 'tgSsc' : 'tgBkt'))
                 );
-                console.log(input);
                 input.value = parseInt(input.value) + 1;
             }
 
@@ -643,7 +642,6 @@
                     ? (item === 'hsc' ? 'waHsc' : (item === 'ssc' ? 'waSsc' : 'waBkt'))
                     : (item === 'hsc' ? 'tgHsc' : (item === 'ssc' ? 'tgSsc' : 'tgBkt'))
                 );
-                console.log(input);
                 if (parseInt(input.value) > 0) input.value = parseInt(input.value) - 1;
             }
 
@@ -706,7 +704,8 @@
                     if (platform === 'whatsapp') {
                         url = "https://wa.me/959779068288?text=" + encodeURIComponent(message);
                     } else {
-                        url = "https://t.me/OGOD_TTOS?text=" + encodeURIComponent(message); // replace with your Telegram link
+                        // url = "https://t.me/OGOD_TTOS?text=" + encodeURIComponent(message);
+                        url = "https://t.me/share/url?url=https://ogodttos-9c771.web.app&text=" + encodeURIComponent(message);
                     }
                     window.open(url, "_blank");
                 }
