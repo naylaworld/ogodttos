@@ -703,7 +703,7 @@
 
                     let url = "";
                     if (platform === 'whatsapp') {
-                        url = "https://wa.me/959779068288?text=" + encodeURIComponent(myUrl + "<br><br>" + message);
+                        url = "https://wa.me/959779068288?text=" + encodeURIComponent(myUrl + "\n\n" + message);
                     } else {
                         // url = "https://t.me/OGOD_TTOS?text=" + encodeURIComponent(message);
                         url = "https://t.me/share/url?url=" + myUrl + "&text=" + encodeURIComponent(message);
