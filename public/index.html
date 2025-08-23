@@ -723,7 +723,7 @@
             // - Fallback → If tomorrow is closed, find the earliest next open day.
              
             // Closed days: 0=Sunday, 1=Monday, ..., 6=Saturday
-            const closedDays = [1, 3]; // Example: closed on Monday(1) and Wednesday(3)
+            const closedDays = [0, 1, 3, 6]; // Example: closed on Monday(1) and Wednesday(3)
 
             // Format date + slot label
             function formatDateTime(date, slot) {
