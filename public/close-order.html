@@ -1,0 +1,52 @@
+<section id="closeOrder" class="py-5" style="display: inline;">
+    <div class="container">
+        <h2 class="text-center mb-4"><i class="bi bi-cart-check"></i> Close Order!</h2>
+        <!-- Closed Message -->
+        <div class="container d-flex justify-content-center" style="margin-bottom: 10px;">
+            <div class="chat-wrap" style="max-width: 720px; width: 100%;">
+                <div class="d-flex align-items-start gap-3">
+                    <!-- Avatar / Icon -->
+                    <div class="avatar rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-robot" aria-hidden="true"></i>
+                        <span class="visually-hidden">O GOD</span>
+                    </div>
+                    <!-- Bubble -->
+                    <div class="chat-bubble">
+                        <p class="mb-2">ဒီနေ့အတွက် အော်ဒါပိတ်ပါပြီ။ မနက်ဖြန် မနက် 9:30 မှ 6:30 နာရီအတွင်း ပြန်လာပါ။ ကျေးဇူးတင်ပါတယ်။</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function checkOrderTime() {
+    // Always get Myanmar local time
+    const myanmarNow = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Yangon" }));
+
+    const hour = myanmarNow.getHours();
+    const minute = myanmarNow.getMinutes();
+
+    const currentMinutes = hour * 60 + minute;
+
+    const startMinutes = 9 * 60 + 30; // 09:30
+    const endMinutes = 18 * 60 + 30; // 18:30
+
+    if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+        // ✅ Within open hours → show order form
+        document.getElementById("orderNow").style.display = "block";
+        document.getElementById("closeOrder").style.display = "none";
+    } else {
+        // ❌ Outside open hours → hide order form
+        document.getElementById("orderNow").style.display = "none";
+        document.getElementById("closeOrder").style.display = "block";
+    }
+}
+
+// document.addEventListener("DOMContentLoaded", () => {
+    // ✅ run immediately
+    checkOrderTime(); // Run once on load
+    setInterval(checkOrderTime, 60000); // Run every 60 seconds
+// });
+</script>
