@@ -76,6 +76,19 @@
                             <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('bkt')">+</button>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <!-- Label styled like input -->
+                            <div class="input-group-text d-flex flex-column flex-grow-1 align-items-start">
+                                <span>ပါမုန့် ယိုသုတ်</span>
+                                <span class="badge text-bg-secondary mt-1">Ks 2,500</span>
+                            </div>
+                            <!-- Counter (compact width on right) -->
+                            <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty('pkt')">-</button>
+                            <input type="text" class="form-control text-center" id="vbPkt" value="0" style="max-width: 50px;">
+                            <button type="button" class="btn btn-outline-secondary" onclick="increaseQty('pkt')">+</button>
+                        </div>
+                    </div>
                     <!-- Pickup Time -->
                     <div class="mb-3">
                         <label for="pickupTime" class="form-label">Deli အချိန်</label>
@@ -115,12 +128,22 @@
 <script>
 // Quantity controls
 function increaseQty(item) {
-    const input = document.getElementById(item === 'hsc' ? 'vbHsc' : (item === 'ssc' ? 'vbSsc' : 'vbBkt'));
+    const input = document.getElementById(
+        item === 'hsc' ? 'vbHsc' :
+        item === 'ssc' ? 'vbSsc' :
+        item === 'bkt' ? 'vbBkt' :
+        'vbPkt'
+    );
     input.value = parseInt(input.value) + 1;
 }
 
 function decreaseQty(item) {
-    const input = document.getElementById(item === 'hsc' ? 'vbHsc' : (item === 'ssc' ? 'vbSsc' : 'vbBkt'));
+    const input = document.getElementById(
+        item === 'hsc' ? 'vbHsc' :
+        item === 'ssc' ? 'vbSsc' :
+        item === 'bkt' ? 'vbBkt' :
+        'vbPkt'
+    );
     if (parseInt(input.value) > 0) input.value = parseInt(input.value) - 1;
 }
 
@@ -133,12 +156,20 @@ function previewOrder() {
     let hsc = document.getElementById('vbHsc').value;
     let ssc = document.getElementById('vbSsc').value;
     let bkt = document.getElementById('vbBkt').value;
+    let pkt = document.getElementById('vbPkt').value;
     let pickup = document.getElementById('vbPickupTime').value;
     let request = document.getElementById('vbRequest').value;
 
 
     // Validation - General
-    if (!name || !address || !ygnTwsp || !phone || (hsc == 0 && ssc == 0 && bkt == 0) || !pickup) {
+    if (
+        !name ||
+        !address ||
+        !ygnTwsp ||
+        !phone ||
+        (hsc === 0 && ssc === 0 && bkt === 0 && pkt === 0) ||
+        !pickup
+    ) {
         alert("ကျေးဇူးပြု၍ လိုအပ်သောအချက်အလက်များကို ဖြည့်စွက်ပါ။");
         return;
     }
@@ -160,6 +191,7 @@ function previewOrder() {
                 ${hsc > 0 ? `<li>ဆေးဖက်ဝင် ကြက်ပေါင်း x ${hsc}</li>` : ""}
                 ${ssc > 0 ? `<li>ကြက်ပဲငံပြာရည် x ${ssc}</li>` : ""}
                 ${bkt > 0 ? `<li>နံရိုးပေါင်း စွပ်ပြုပ် x ${bkt}</li>` : ""}
+                ${pkt > 0 ? `<li>ပါမုန့် ယိုသုတ် x ${pkt}</li>` : ""}
                 </ul>
                 <p><strong>Deli အချိန် = </strong> ${pickup}</p>
                 <p><strong>အထူးမှတ်ချက် = </strong> ${request}</p>
@@ -177,6 +209,7 @@ function previewOrder() {
         if (hsc > 0) message += `- ဆေးဖက်ဝင် ကြက်ပေါင်း x ${hsc}\n`;
         if (ssc > 0) message += `- ကြက်ပဲငံပြာရည် x ${ssc}\n`;
         if (bkt > 0) message += `- နံရိုးပေါင်း စွပ်ပြုပ် x ${bkt}\n`;
+        if (pkt > 0) message += `- ပါမုန့် ယိုသုတ် x ${pkt}\n`;
         message += `\nDeli အချိန် = ${pickup}`;
 
         // Add special request only if not empty or whitespace
