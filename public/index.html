@@ -15,7 +15,7 @@
             background-color: #fefefe;
             scroll-behavior: smooth;
             /* smooth scrolling */
-            background-image: url('images/background.png');
+            background-image: url('images/background.webp');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -127,110 +127,105 @@
     <body>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-light bg-light sticky-top shadow-sm">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo -->
                 <a class="navbar-brand" href="#home">
-                    <img src="images/ogod-logo.svg" alt="O GOD Logo">
+                    <img src="images/ogod-logo.svg" alt="O GOD Logo" style="height:40px;">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#items">Available Items</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#hours">Opening Hours</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#orderNow">Order Now</a></li>
-                </ul>
+                <!-- Only "Order Now" button -->
+                <a class="btn btn-primary rounded-pill px-3" href="#orderNowOrClose">
+                    <i class="bi bi-cart-check"></i> Order Now
+                </a>
             </div>
+        </nav>
+
+        <div class="content-wrapper">
+
+            <!-- Logo & Slogan -->
+            <div include-html="home.html"></div>
+
+            <!-- About Us -->
+            <div include-html="about.html"></div>
+
+            <!-- Available Items -->
+            <div include-html="items.html"></div>
+
+            <!-- Opening Hours -->
+            <div include-html="hours.html"></div>
+
+            <!-- Contact Us -->
+            <div include-html="contact.html"></div>
+
+            <div id="orderNowOrClose">
+                <!-- Order Now | START -->
+                <div include-html="order-now.html"></div>
+                <!-- Order Now | END -->
+
+                <!-- Close Order | START -->
+                <div include-html="close-order.html"></div>
+                <!-- Close Order | END -->
+            </div>
+
         </div>
-    </nav>
 
-    <div class="content-wrapper">
+        <!-- Promotion Modal -->
+        <div include-html="promo-modal.html"></div>
 
-        <!-- Logo & Slogan -->
-        <div include-html="home.html"></div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+        /**
+         * includeHTMLSequential
+         * --------------------
+         * Sequentially includes HTML files into elements with the "include-html" attribute.
+         * Stops immediately if any include fails (like PHP's include behavior).
+         * Executes scripts inside included files.
+         */
+        async function includeHTMLSequential() {
+            // Get all elements with the "include-html" attribute
+            const elements = document.querySelectorAll("[include-html]");
 
-        <!-- About Us -->
-        <div include-html="about.html"></div>
+            for (const el of elements) {
+                const file = el.getAttribute("include-html");
+                if (!file) continue; // skip empty attributes
 
-        <!-- Available Items -->
-        <div include-html="items.html"></div>
+                try {
+                    // Fetch the HTML file
+                    const resp = await fetch(file);
+                    if (!resp.ok) throw new Error("Failed to load " + file);
+                    const data = await resp.text();
 
-        <!-- Opening Hours -->
-        <div include-html="hours.html"></div>
+                    // Insert the HTML into the element
+                    el.innerHTML = data;
 
-        <!-- Contact Us -->
-        <div include-html="contact.html"></div>
+                    // Execute scripts inside the included HTML
+                    el.querySelectorAll("script").forEach(oldScript => {
+                        const newScript = document.createElement("script");
 
-        <!-- Order Now | START -->
-        <div include-html="order-now.html"></div>
-        <!-- Order Now | END -->
+                        // Copy all attributes (e.g., src, type)
+                        [...oldScript.attributes].forEach(attr =>
+                            newScript.setAttribute(attr.name, attr.value)
+                        );
 
-        <!-- Close Order | START -->
-        <div include-html="close-order.html"></div>
-        <!-- Close Order | END -->
+                        // Copy inline script content
+                        newScript.textContent = oldScript.textContent;
 
-    </div>
+                        // Replace old script to force execution
+                        oldScript.replaceWith(newScript);
+                    });
 
-    <!-- Promotion Modal -->
-    <div include-html="promo-modal.html"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    /**
-     * includeHTMLSequential
-     * --------------------
-     * Sequentially includes HTML files into elements with the "include-html" attribute.
-     * Stops immediately if any include fails (like PHP's include behavior).
-     * Executes scripts inside included files.
-     */
-    async function includeHTMLSequential() {
-        // Get all elements with the "include-html" attribute
-        const elements = document.querySelectorAll("[include-html]");
-
-        for (const el of elements) {
-            const file = el.getAttribute("include-html");
-            if (!file) continue; // skip empty attributes
-
-            try {
-                // Fetch the HTML file
-                const resp = await fetch(file);
-                if (!resp.ok) throw new Error("Failed to load " + file);
-                const data = await resp.text();
-
-                // Insert the HTML into the element
-                el.innerHTML = data;
-
-                // Execute scripts inside the included HTML
-                el.querySelectorAll("script").forEach(oldScript => {
-                    const newScript = document.createElement("script");
-
-                    // Copy all attributes (e.g., src, type)
-                    [...oldScript.attributes].forEach(attr =>
-                        newScript.setAttribute(attr.name, attr.value)
-                    );
-
-                    // Copy inline script content
-                    newScript.textContent = oldScript.textContent;
-
-                    // Replace old script to force execution
-                    oldScript.replaceWith(newScript);
-                });
-
-            } catch (err) {
-                // Display error and stop processing further includes
-                el.innerHTML = "Error loading " + file;
-                console.error(err);
-                break; // stop sequential processing
+                } catch (err) {
+                    // Display error and stop processing further includes
+                    el.innerHTML = "Error loading " + file;
+                    console.error(err);
+                    break; // stop sequential processing
+                }
             }
         }
-    }
 
-    // Run after page load
-    document.addEventListener("DOMContentLoaded", includeHTMLSequential);
-    </script>
-</body>
+        // Run after page load
+        document.addEventListener("DOMContentLoaded", includeHTMLSequential);
+        </script>
+    </body>
 
 </html>
