@@ -153,26 +153,25 @@ function previewOrder() {
     let address = document.getElementById('vbAddress').value;
     let ygnTwsp = document.getElementById('vbYgnTwsp').value;
     let phone = document.getElementById('vbPhone').value;
-    let hsc = document.getElementById('vbHsc').value;
-    let ssc = document.getElementById('vbSsc').value;
-    let bkt = document.getElementById('vbBkt').value;
-    let pkt = document.getElementById('vbPkt').value;
+    let hsc = parseInt(document.getElementById('vbHsc').value);
+    let ssc = parseInt(document.getElementById('vbSsc').value);
+    let bkt = parseInt(document.getElementById('vbBkt').value);
+    let pkt = parseInt(document.getElementById('vbPkt').value);
     let pickup = document.getElementById('vbPickupTime').value;
     let request = document.getElementById('vbRequest').value;
 
-
-    // Validation - General
-    if (
-        !name ||
-        !address ||
-        !ygnTwsp ||
-        !phone ||
-        (hsc === 0 && ssc === 0 && bkt === 0 && pkt === 0) ||
-        !pickup
-    ) {
-        alert("ကျေးဇူးပြု၍ လိုအပ်သောအချက်အလက်များကို ဖြည့်စွက်ပါ။");
-        return;
-    }
+// Validation - General
+if (
+    !name ||
+    !address ||
+    !ygnTwsp ||
+    !phone ||
+    (hsc === 0 && ssc === 0 && bkt === 0 && pkt === 0) ||
+    !pickup
+) {
+    alert("ကျေးဇူးပြု၍ လိုအပ်သောအချက်အလက်များကို ဖြည့်စွက်ပါ။");
+    return;
+}
 
     // Validation - Myanmar phone number
     const regex = /^09\d{7,9}$/;
